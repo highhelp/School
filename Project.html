@@ -9,10 +9,8 @@
         body, html {
             height: 100%;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
+            overflow: hidden; /* 스크롤 막기 */
+            position: relative; /* body에 상대 위치 설정 */
         }
 
         /* 로고 텍스트 스타일 */
@@ -20,26 +18,52 @@
             font-size: 36px;
             font-weight: bold;
             color: #333; /* 로고 텍스트 색상 */
-            margin-top: 20px; /* 로고 텍스트 위 여백 */
-            margin-bottom: 20px; /* 로고 텍스트 아래 여백 */
+            position: fixed; /* 화면에 고정 */
+            top: 0; /* 화면 상단에 위치 */
+            left: 50%; /* 화면 가로 중앙에 위치 */
+            transform: translateX(-50%); /* 가로 정렬을 위해 왼쪽으로 이동 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능하다는 표시 */
+            z-index: 999; /* 다른 요소 위에 표시 */
         }
 
         /* 수평선 스타일 */
         hr {
-            width: 100vw; /* 수평선을 화면 가로 전체로 설정 */
+            position: fixed; /* 화면에 고정 */
+            top: 70px; /* 화면 상단에 위치 */
+            left: 0; /* 화면 좌측에 위치 */
+            width: 100%; /* 수평선을 화면 가로 전체로 설정 */
             border: none;
             border-top: 2px solid #333; /* 수평선 색상 */
-            margin-top: 20px; /* 수평선 위 여백 */
-            margin-bottom: 50px; /* 수평선 아래 여백 */
+            z-index: 998; /* 다른 요소 위에 표시 */
         }
     </style>
 </head>
 <body>
-    <h1 id="logoText">안양대학교</h1>
+    <h1 id="logoText"><a href="#">안양대학교</a></h1>
     <hr>
 
     <script>
-        // 이곳에 자바스크립트 코드를 작성할 필요가 없습니다.
+        // 텍스트 클릭 시 현재 페이지 맨 위로 이동하는 함수
+        document.getElementById("logoText").addEventListener("click", function(e) {
+            e.preventDefault(); // 링크 기본 동작 중단
+            window.scrollTo(0, 0); // 페이지 맨 위로 스크롤
+        });
+
+        // 외부 링크 클릭 시 현재 페이지로 돌아오는 함수
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll("a[href^='#']");
+            links.forEach(link => {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    window.scrollTo(0, 0);
+                });
+            });
+        });
+
+        // 마우스 휠 이벤트를 처리하여 스크롤을 막음
+        window.addEventListener("wheel", function(e) {
+            e.preventDefault();
+        });
     </script>
 </body>
 </html>
