@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>안양대학교 로그인</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: rgb(233, 232, 232);
+            }
+            .container {
+                width: 300px;
+                margin: 100px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+            h1 {
+                color: #333;
+            }
+            input[type="id"], input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+            input[type="submit"], .btn {
+                width: 100%;
+                background-color: rgb(93, 129, 226);
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            input[type="submit"]:hover, .btn:hover {
+                background-color: #0056b3;
+            }
+            .btn-container {
+                margin-top: 10px;
+            }
+            .btn-container a {
+                color: #007bff;
+                text-decoration: none;
+                margin-right: 10px;
+            }
+            .btn-container a:hover {
+                text-decoration: underline;
+            }
+            .checkbox-container {
+                text-align: left;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+<body>
+    <div class="container">
+        <h1>안양대학교</h1>
+        <form action="#" method="post">
+            <input type="id" name="username" placeholder="아이디" required><br>
+            <input type="password" name="password" placeholder="비밀번호" required><br>
+            <div class = "checkbox-container">
+                <input type = "checkbox" id = "remember me" name="remember-me">
+                <label for = "remember-me"> 로그인 상태 유지</label>
+            </div>
+            <input type="submit" value="로그인">
+        </form>
+        <div class="btn-container">
+            <a href="ID.html">아이디 찾기</a>
+            <a href="Pswd.html">비밀번호 찾기</a>
+            <a href="Register.html">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>
