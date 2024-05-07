@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>안양대학교 홈페이지</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* 전체 화면 가득 채우기 */
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* 스크롤 막기 */
+            position: relative; /* body에 상대 위치 설정 */
+        }
+
+        /* 로고 텍스트 스타일 */
+        #logoText {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333; /* 로고 텍스트 색상 */
+            position: fixed; /* 화면에 고정 */
+            top: 0; /* 화면 상단에 위치 */
+            left: 50%; /* 화면 가로 중앙에 위치 */
+            transform: translateX(-50%); /* 가로 정렬을 위해 왼쪽으로 이동 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능하다는 표시 */
+            z-index: 999; /* 다른 요소 위에 표시 */
+        }
+
+        /* 로그인 아이콘 스타일 */
+        .login-container {
+            position: fixed; /* 화면에 고정 */
+            top: 10px; /* 화면 상단에 위치 */
+            right: 20px; /* 화면 우측에 위치 */
+            display: flex; /* 아이콘과 텍스트를 가로로 배열 */
+            align-items: center; /* 수직 가운데 정렬 */
+            z-index: 999; /* 다른 요소 위에 표시 */
+        }
+
+        /* 아이콘 스타일 */
+        .login-icon, .search-icon {
+            font-size: 36px; /* 아이콘 크기 */
+            color: #333; /* 아이콘 색상 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능하다는 표시 */
+            margin-right: 5px; /* 아이콘과 텍스트 사이의 간격 조정 */
+        }
+
+        /* 수평선 스타일 */
+        hr {
+            position: fixed; /* 화면에 고정 */
+            top: 70px; /* 화면 상단에 위치 */
+            left: 0; /* 화면 좌측에 위치 */
+            width: 100%; /* 수평선을 화면 가로 전체로 설정 */
+            border: none;
+            border-top: 2px solid #333; /* 수평선 색상 */
+            z-index: 998; /* 다른 요소 위에 표시 */
+        }
+
+        /* 수직선 스타일 */
+        .vertical-line {
+            position: fixed; /* 화면에 고정 */
+            top: 80px; /* 수평선 아래에 위치 */
+            left: 15%; /* 화면 가로 중앙에 위치 */
+            width: 2px; /* 수직선 너비 */
+            height: calc(100% - 70px); /* 수직선 높이 */
+            background-color: #333; /* 수직선 색상 */
+            z-index: 998; /* 다른 요소 위에 표시 */
+        }
+
+        /* 왼쪽 칸 스타일 */
+        .left-column {
+            position: fixed; /* 화면에 고정 */
+            top: 80px; /* 수평선 아래에 위치 */
+            left: 0; /* 화면 좌측에 위치 */
+            width: 15%; /* 화면 가로의 절반 크기로 설정 */
+            height: calc(100% - 70px); /* 화면 세로 전체 크기로 설정 */
+            background-color: #f0f0f0; /* 배경색 설정 */
+            z-index: 997; /* 다른 요소 위에 표시 */
+        }
+
+        /* 오른쪽 칸 스타일 */
+        .right-column {
+            position: fixed; /* 화면에 고정 */
+            top: 70px; /* 수평선 아래에 위치 */
+            right: 0; /* 화면 우측에 위치 */
+            width: 50%; /* 화면 가로의 절반 크기로 설정 */
+            height: calc(100% - 70px); /* 화면 세로 전체 크기로 설정 */
+            background-color: #fff; /* 배경색 설정 */
+            z-index: 997; /* 다른 요소 위에 표시 */
+        }
+
+        /* 하단 요소들의 공통 스타일 */
+        .bottom-elements {
+            position: fixed; /* 화면에 고정 */
+            top: 10px; /* 화면 상단에 위치 */
+            z-index: 999; /* 다른 요소 위에 표시 */
+        }
+
+        /* 로그인 아이콘 위치 */
+        .login-container {
+            right: 20px; /* 화면 우측에 위치 */
+        }
+
+        /* 검색 아이콘 위치 */
+        .search-container {
+            right: 80px; /* 화면 우측에 위치 */
+        }
+
+        /* 로그인 아이콘과 텍스트 위치 */
+        .login-container {
+            right: 20px; /* 화면 우측에 위치 */
+        }
+
+        /* 검색 아이콘과 텍스트 위치 */
+        .search-container {
+            right: 140px; /* 화면 우측에 위치 */
+        }
+
+        /* 로그인 텍스트와 검색 텍스트 위치 */
+        .login-container span, .search-container span {
+            margin-right: 5px; /* 텍스트와 아이콘 사이의 간격 조정 */
+        }
+
+        /* 왼쪽 칸 내부 리스트 스타일 */
+        .left-column ul {
+            list-style-type: none; /* 리스트 스타일 제거 */
+            padding: 0; /* 내부 패딩 제거 */
+        }
+
+        /* 왼쪽 칸 내부 리스트 아이템 스타일 */
+        .left-column li {
+            margin-bottom: 10px; /* 각 아이템간의 간격 조정 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능하다는 표시 */
+            color: #333; /* 텍스트 색상 */
+            font-size: 16px; /* 텍스트 크기 */
+        }
+    </style>
+</head>
+<body>
+    <h1 id="logoText" onclick="goToTop()">안양대학교</h1>
+    <div class="search-container bottom-elements">
+        <i class="fas fa-search search-icon"></i>
+    </div>
+    <div class="login-container bottom-elements">
+        <i class="fas fa-user-circle login-icon"></i>
+        <span>로그인</span>
+    </div>
+    <hr>
+    <div class="vertical-line"></div> <!-- 수직선 -->
+    <div class="left-column">
+        <ul>
+            <li onclick="goToSearch()"><i class="fas fa-search"></i> 검색바</li>
+            <li onclick="goToNotice()">학교공지사항</li>
+            <li onclick="goToFreeBoard()">자유게시판</li>
+            <li onclick="goToOnlineLecture()">사이버강의</li>
+        </ul>
+    </div> <!-- 왼쪽 칸 -->
+    <div class="right-column"></div> <!-- 오른쪽 칸 -->
+
+    <script>
+        // 클릭 시 화면 상단으로 이동하는 함수
+        function goToTop() {
+            window.scrollTo(0, 0); // 화면을 상단으로 스크롤
+        }
+
+        // 검색바로 이동하는 함수
+        function goToSearch() {
+            // 검색 페이지로 이동
+            window.location.href = "search.html";
+        }
+
+        // 학교공지사항으로 이동하는 함수
+        function goToNotice() {
+            // 학교공지사항 페이지로 이동
+            window.location.href = "notice.html";
+        }
+
+        // 자유게시판으로 이동하는 함수
+        function goToFreeBoard() {
+            // 자유게시판 페이지로 이동
+            window.location.href = "freeboard.html";
+        }
+
+        // 사이버강의로 이동하는 함수
+        function goToOnlineLecture() {
+            // 사이버강의 페이지로 이동
+            window.location.href = "https://cyber.anyang.ac.kr/index.jsp";
+        }
+
+        // 마우스 휠 이벤트를 처리하여 스크롤을 막음
+        window.addEventListener("wheel", function(e) {
+            e.preventDefault();
+        });
+
+        // 안양대학교 텍스트 클릭 시 현재 페이지로 돌아오는 함수
+        document.getElementById("logoText").addEventListener("click", function() {
+            window.scrollTo(0, 0); // 페이지 맨 위로 스크롤
+        });
+    </script>
+</body>
+</html>
