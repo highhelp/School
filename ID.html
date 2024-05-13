@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>아이디 찾기</title>
+    <style>
+        /* 전체 body 스타일 */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* 배경색 설정 */
+        }
+        /* 로그인 폼을 감싸는 컨테이너 스타일 */
+        .container {
+            width: 300px;
+            margin: 100px auto; /* 수평 가운데 정렬 */
+            background-color: #fff; /* 배경색 설정 */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+            text-align: center; /* 내용 가운데 정렬 */
+        }
+        /* 제목 스타일 */
+        h2 {
+            color: #333; /* 제목 색상 */
+        }
+        /* 입력 필드 및 버튼 스타일 */
+        input[type="text"], input[type="number"], .send-button, input[type="submit"] {
+            width: 100%; /* 너비 100% 설정 */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* 패딩과 보더 포함 크기 설정 */
+            display: inline-block; /* 인라인 요소로 표시 */
+        }
+        /* 전송 버튼 스타일 */
+        .send-button {
+            width: 80%; /* 너비 80% 설정 */
+            margin-top: 10px; /* 위쪽 마진 설정 */
+            background-color: #007bff; /* 배경색 설정 */
+            color: #fff; /* 텍스트 색상 */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s; /* 배경색 전환 효과 */
+        }
+        /* 전송 버튼 호버 효과 */
+        .send-button:hover {
+            background-color: #0056b3; /* 호버 시 배경색 변경 */
+        }
+        /* 제출 버튼 스타일 */
+        input[type="submit"] {
+            background-color: #007bff; /* 배경색 설정 */
+            color: #fff; /* 텍스트 색상 */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* 배경색 전환 효과 */
+        }
+        /* 제출 버튼 호버 효과 */
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* 호버 시 배경색 변경 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>아이디 찾기</h2>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="이름" required><br>
+            <input type="number" name="student-id" placeholder="학번" required><br>
+            <input type="text" name="phone-number" placeholder="휴대전화번호" required><br>
+            <input type="button" value="인증번호 발송" class="send-button"><br>
+            <input type="text" id="verification-code" name="verification-code" placeholder="인증번호" required><br>
+            <input type="submit" value="아이디 찾기"> <!-- 아이디 찾기 버튼 -->
+        </form>
+    </div>
+</body>
+</html>
