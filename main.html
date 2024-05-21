@@ -156,4 +156,62 @@
         </ul>
     </div> <!-- 왼쪽 칸 -->
     <div class="right-column"></div> <!-- 오른쪽 칸 -->
+    <script>
+        // 클릭 시 화면 상단으로 이동하는 함수
+        function goToTop() {
+            window.scrollTo(0, 0); // 화면을 상단으로 스크롤
+        }
 
+        // 검색바로 이동하는 함수
+        function goToSearch() {
+            // 검색 페이지로 이동
+            window.location.href = "search.html";
+        }
+
+        // 학교공지사항으로 이동하는 함수
+        function goToNotice() {
+            // 학교공지사항 페이지로 이동
+            window.location.href = "Notification.HTML";
+        }
+
+        // 자유게시판으로 이동하는 함수
+        function goToFreeBoard() {
+            // 자유게시판 페이지로 이동
+            window.location.href = "FreeBoard.html";
+        }
+
+        // 사이버강의로 이동하는 함수
+        function goToOnlineLecture() {
+            // 사이버강의 페이지로 이동
+            window.location.href = "https://cyber.anyang.ac.kr/index.jsp";
+        }
+
+        // 로그인으로 이동하는 함수
+        function goToLogin() {
+        // 로그인 페이지로 이동
+        window.location.href = "Login.HTML";
+        }
+
+        // 마우스 휠 이벤트를 처리하여 스크롤을 막음
+        window.addEventListener("wheel", function(e) {
+            e.preventDefault();
+        });
+
+        //안양대학교 텍스트 클릭시 매인페이지로 돌아오는 함수
+        function logoText() {
+            // 매인페이지로 이동
+            window.location.href = "Project.html";
+        }
+
+        // 안양대학교 텍스트 클릭 시 현재 페이지로 돌아오는 함수
+        document.getElementById("logoText").addEventListener("click", function() {
+            window.scrollTo(0, 0); // 페이지 맨 위로 스크롤
+        });
+
+         // 로그인 텍스트 클릭 시 로그인 페이지로 이동하는 함수 추가
+    document.querySelector(".login-container").addEventListener("click", function() {
+        goToLogin(); // 로그인 페이지로 이동하는 함수 호출
+    });
+    </script>
+</body>
+</html>
