@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>이용약관 및 개인정보 수집 및 이용 동의</title>
+    <style>
+        /* 화면을 중앙에 정렬하고 배경색을 설정 */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        /* 폼을 감싸는 컨테이너 스타일 */
+        .container {
+            width: 500px;
+            margin: 100px auto; /* 수평 가운데 정렬 */
+            background-color: #fff; /* 배경색 설정 */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+            text-align: center; /* 내용 가운데 정렬 */
+        }
+        /* 제목 스타일 */
+        .h1{
+            color: #333;
+        }
+        /* 체크박스 컨테이너 스타일 */
+        .checkbox-container {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* 스크롤 가능한 박스 스타일 */
+        .scroll-box {
+            width: 100%;
+            max-width: 460px; /* 부모 컨테이너의 패딩과 일치하도록 설정 */
+            height: 150px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: scroll;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        /* 전체 너비를 차지하는 요소 스타일 */
+        .full-width {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        /* 버튼 스타일 */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+        .btn {
+            width: 100%;
+            max-width: 460px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        /* 버튼에 마우스를 올렸을 때 스타일 */
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn a {
+            color: #fff; /* 링크 색상 흰색으로 설정 */
+            text-decoration: none; /* 밑줄 제거 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>회원가입</h1>
+        <form>
+            <!-- 이용약관 체크박스와 스크롤 박스 -->
+            <div class="checkbox-container">
+                <label for="terms" class="full-width">
+                    <input type="checkbox" id="terms" name="terms">
+                    이용약관에 동의합니다
+                </label>
+                <div class="scroll-box">
+                    <p>이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관</p>
+                    <p>이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관</p>
+                    <p>이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관</p>
+                    <p>이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관</p>
+                    <p>이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관-이용약관</p>
+                </div>
+            </div>
+
+            <!-- 개인정보 수집 및 이용 체크박스와 스크롤 박스 -->
+            <div class="checkbox-container">
+                <label for="privacy" class="full-width">
+                    <input type="checkbox" id="privacy" name="privacy">
+                    개인정보 수집 및 이용에 동의합니다
+                </label>
+                <div class="scroll-box">
+                    <p>개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용</p>
+                    <p>개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용</p>
+                    <p>개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용</p>
+                    <p>개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용</p>
+                    <p>개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용-개인정보 수집 및 이용</p>
+                </div>
+            </div>
+
+            <!-- 전체 동의 체크박스 -->
+            <div class="checkbox-container">
+                <label for="agree-all" class="full-width">
+                    <input type="checkbox" id="agree-all" name="agree-all">
+                    전체 동의합니다
+                </label>
+            </div>
+
+            <!-- 다음 버튼 -->
+            <div class="btn-container">
+                <a class="btn" href="Register.html">다음</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
