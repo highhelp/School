@@ -71,6 +71,16 @@
             text-decoration: none; /* 밑줄 제거 */
         }
     </style>
+    <script>
+        // 전체 동의 체크박스 변경 시 다른 체크박스 상태 변경
+        function CheckAllBox(e) {
+            var isChecked = e.checked;
+            var checkboxes = document.querySelectorAll("input[type=checkbox][name=terms]");
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = isChecked;
+            });
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -94,7 +104,7 @@
             <!-- 개인정보 수집 및 이용 체크박스와 스크롤 박스 -->
             <div class="checkbox-container">
                 <label for="privacy" class="full-width">
-                    <input type="checkbox" id="privacy" name="privacy">
+                    <input type="checkbox" id="privacy" name="terms">
                     개인정보 수집 및 이용에 동의합니다
                 </label>
                 <div class="scroll-box">
@@ -109,7 +119,7 @@
             <!-- 전체 동의 체크박스 -->
             <div class="checkbox-container">
                 <label for="agree-all" class="full-width">
-                    <input type="checkbox" id="agree-all" name="agree-all">
+                    <input type="checkbox" id="agree-all" name="agree-all" onchange="CheckAllBox(this)">
                     전체 동의합니다
                 </label>
             </div>
