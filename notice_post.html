@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 상세 내용</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .post-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .post-date {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .post-content {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            width: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .back-button:hover {
+            background-color: #003f8a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="postTitle" class="post-title"></div>
+        <div id="postDate" class="post-date"></div>
+        <div id="postContent" class="post-content"></div>
+        <a href="Notification.html" class="back-button">돌아가기</a>
+    </div>
+
+    <script>
+        // 공지사항 데이터를 저장합니다.
+        const notices = {
+            1: { 
+                title: "2024년 봄학기 개강 안내", 
+                date: "2024-05-20", 
+                content: `<p>안녕하세요, 학생 여러분.</p>
+                          <p>2024년 봄학기 개강일은 3월 2일입니다. 수강신청은 2월 15일부터 2월 20일까지 진행됩니다. 모든 학생들은 수강신청 기간 내에 신청을 완료해주시기 바랍니다.</p>
+                          <p>감사합니다.</p>
+                          <p>학사관리팀</p>` 
+            },
+            2: { 
+                title: "캠퍼스 내 마스크 착용 의무화 안내", 
+                date: "2024-05-19", 
+                content: `<p>안녕하세요, 학생 여러분.</p>
+                          <p>최근 코로나19 확진자가 증가함에 따라 캠퍼스 내 마스크 착용이 의무화되었습니다. 모든 학생들은 강의실, 도서관 등 실내에서 마스크를 반드시 착용해주시기 바랍니다.</p>
+                          <p>감사합니다.</p>
+                          <p>학생지원팀</p>` 
+            },
+            3: { 
+                title: "2024년 여름방학 해외 연수 프로그램 신청 안내", 
+                date: "2024-05-18", 
+                content: `<p>안녕하세요, 학생 여러분.</p>
+                          <p>2024년 여름방학을 맞아 해외 연수 프로그램을 실시합니다. 신청 기간은 5월 25일부터 6월 10일까지입니다. 자세한 사항은 학교 홈페이지를 참조해주세요.</p>
+                          <p>감사합니다.</p>
+                          <p>국제교류팀</p>` 
+            }
+        };
+
+        // URL 파라미터에서 공지사항 ID를 가져옵니다.
+        const urlParams = new URLSearchParams(window.location.search);
+        const noticeId = urlParams.get('id');
+
+        // 공지사항 데이터를 가져와서 페이지에 표시합니다.
+        if (notices[noticeId]) {
+            document.getElementById('postTitle').textContent = notices[noticeId].title;
+            document.getElementById('postDate').textContent = notices[noticeId].date;
+            document.getElementById('postContent').innerHTML = notices[noticeId].content;
+        } else {
+            document.getElementById('postTitle').textContent = "공지사항을 찾을 수 없습니다.";
+            document.getElementById('postDate').style.display = 'none';
+            document.getElementById('postContent').textContent = "";
+        }
+    </script>
+</body>
+</html>
