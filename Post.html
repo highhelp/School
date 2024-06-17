@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시물 상세 내용</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .post-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .post-date {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .post-content {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            width: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .back-button:hover {
+            background-color: #003f8a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="postTitle" class="post-title"></div>
+        <div id="postDate" class="post-date"></div>
+        <div id="postContent" class="post-content"></div>
+        <a href="freeboard.html" class="back-button">돌아가기</a>
+    </div>
+
+    <script>
+        // 게시물 데이터를 저장합니다.
+        const posts = {
+            1: { 
+                title: "새로운 동아리 모집", 
+                date: "2024-05-20", 
+                content: `<p>안녕하세요, 학생 여러분.</p>
+                          <p>이번 학기에 새로운 동아리를 모집합니다. 관심 있는 학생들은 6월 1일까지 신청해주시기 바랍니다.</p>
+                          <p>동아리 활동을 통해 다양한 경험을 쌓고 새로운 친구들을 만날 수 있는 기회를 놓치지 마세요.</p>
+                          <p>감사합니다.</p>
+                          <p>학생회</p>` 
+            },
+            2: { 
+                title: "기말고사 공부 방법 공유", 
+                date: "2024-05-19", 
+                content: `<p>안녕하세요, 학생 여러분.</p>
+                          <p>기말고사를 앞두고 효율적인 공부 방법을 공유하고자 합니다. 다양한 공부 팁과 자료를 나누고 서로 도와주는 시간을 가져봅시다.</p>
+                          <p>공부 방법 세미나는 5월 25일 오후 3시에 도서관 세미나실에서 진행됩니다.</p>
+                          <p>감사합니다.</p>
+                          <p>학습 지원 센터</p>` 
+            },
+            3: { 
+                title: "졸업생 환송회 준비", 
+                date: "2024-05-18", 
+                content: `<p>안녕하세요, 학생 여러분.</p>
+                          <p>졸업을 앞둔 선배님들을 위한 환송회를 준비하고 있습니다. 함께 축하하고 즐거운 시간을 보낼 수 있도록 많은 참여 부탁드립니다.</p>
+                          <p>환송회는 6월 10일 오후 6시에 체육관에서 진행됩니다.</p>
+                          <p>감사합니다.</p>
+                          <p>졸업 준비 위원회</p>` 
+            }
+        };
+
+        // URL 파라미터에서 게시물 ID를 가져옵니다.
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+
+        // 게시물 데이터를 가져와서 페이지에 표시합니다.
+        if (posts[postId]) {
+            document.getElementById('postTitle').textContent = posts[postId].title;
+            document.getElementById('postDate').textContent = posts[postId].date;
+            document.getElementById('postContent').innerHTML = posts[postId].content;
+        } else {
+            document.getElementById('postTitle').textContent = "게시물을 찾을 수 없습니다.";
+            document.getElementById('postDate').style.display = 'none';
+            document.getElementById('postContent').textContent = "";
+        }
+    </script>
+</body>
+</html>
