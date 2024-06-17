@@ -13,20 +13,29 @@
             overflow: hidden; /* 스크롤 막기 */
             position: relative; /* body에 상대 위치 설정 */
         }
-
+    
+        /* 상단 바 스타일 */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #0056b3; /* 파란색 배경 */
+            z-index: 1000; /* 다른 요소 위에 표시 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
         /* 로고 텍스트 스타일 */
         #logoText {
             font-size: 36px;
             font-weight: bold;
-            color: #333; /* 로고 텍스트 색상 */
-            position: fixed; /* 화면에 고정 */
-            top: 0; /* 화면 상단에 위치 */
-            left: 50%; /* 화면 가로 중앙에 위치 */
-            transform: translateX(-50%); /* 가로 정렬을 위해 왼쪽으로 이동 */
+            color: #fff; /* 하얀색 텍스트 */
             cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능하다는 표시 */
-            z-index: 999; /* 다른 요소 위에 표시 */
         }
-
+    
         /* 로그인 아이콘 스타일 */
         .login-container {
             position: fixed; /* 화면에 고정 */
@@ -36,15 +45,21 @@
             align-items: center; /* 수직 가운데 정렬 */
             z-index: 999; /* 다른 요소 위에 표시 */
         }
-
+    
         /* 아이콘 스타일 */
-        .login-icon, .search-icon {
+        .login-icon {
             font-size: 36px; /* 아이콘 크기 */
-            color: #333; /* 아이콘 색상 */
+            color: #fff; /* 하얀색 아이콘 */
             cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능하다는 표시 */
             margin-right: 5px; /* 아이콘과 텍스트 사이의 간격 조정 */
         }
-
+    
+        /* 로그인 텍스트 스타일 */
+        .login-container span {
+            color: #fff; /* 하얀색 텍스트 */
+            cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능하다는 표시 */
+        }
+    
         /* 수평선 스타일 */
         hr {
             position: fixed; /* 화면에 고정 */
@@ -55,164 +70,252 @@
             border-top: 2px solid #333; /* 수평선 색상 */
             z-index: 998; /* 다른 요소 위에 표시 */
         }
-
+    
         /* 수직선 스타일 */
         .vertical-line {
             position: fixed; /* 화면에 고정 */
             top: 80px; /* 수평선 아래에 위치 */
             left: 15%; /* 화면 가로 중앙에 위치 */
             width: 2px; /* 수직선 너비 */
-            height: calc(100% - 70px); /* 수직선 높이 */
+            height: calc(100% - 80px); /* 수직선 높이 */
             background-color: #333; /* 수직선 색상 */
             z-index: 998; /* 다른 요소 위에 표시 */
         }
-
+    
         /* 왼쪽 칸 스타일 */
         .left-column {
-            position: fixed; /* 화면에 고정 */
-            top: 80px; /* 수평선 아래에 위치 */
-            left: 0; /* 화면 좌측에 위치 */
-            width: 15%; /* 화면 가로의 절반 크기로 설정 */
-            height: calc(100% - 70px); /* 화면 세로 전체 크기로 설정 */
-            background-color: #f0f0f0; /* 배경색 설정 */
-            z-index: 997; /* 다른 요소 위에 표시 */
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 15%;
+            height: calc(100% - 80px);
+            background-color: #f0f0f0;
+            z-index: 997;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
         }
-
+    
+        .left-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .left-column li {
+            margin-bottom: 15px;
+            cursor: pointer;
+            color: #333;
+            font-size: 24px;
+        }
+    
+        .left-column li:hover {
+            background-color: #e9e9e9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    
         /* 오른쪽 칸 스타일 */
         .right-column {
             position: fixed; /* 화면에 고정 */
-            top: 70px; /* 수평선 아래에 위치 */
-            right: 0; /* 화면 우측에 위치 */
-            width: 50%; /* 화면 가로의 절반 크기로 설정 */
-            height: calc(100% - 70px); /* 화면 세로 전체 크기로 설정 */
+            top: 80px; /* 수평선 아래에 위치 */
+            left: 17%; /* 수직선 오른쪽에 위치 */
+            width: 83%; /* 화면 가로의 나머지 크기로 설정 */
+            height: calc(100% - 80px); /* 화면 세로 전체 크기로 설정 */
             background-color: #fff; /* 배경색 설정 */
+            overflow-y: auto; /* 세로 스크롤 가능 */
             z-index: 997; /* 다른 요소 위에 표시 */
+            padding: 20px; /* 내부 여백 설정 */
         }
-
-        /* 하단 요소들의 공통 스타일 */
-        .bottom-elements {
-            position: fixed; /* 화면에 고정 */
-            top: 10px; /* 화면 상단에 위치 */
-            z-index: 999; /* 다른 요소 위에 표시 */
+    
+        /* 캘린더 스타일 */
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-gap: 10px;
+            padding: 10px;
         }
-
-        /* 로그인 아이콘 위치 */
-        .login-container {
-            right: 20px; /* 화면 우측에 위치 */
+    
+        .calendar-header {
+            grid-column: span 7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
         }
-
-        /* 검색 아이콘 위치 */
-        .search-container {
-            right: 80px; /* 화면 우측에 위치 */
+    
+        .calendar-header div {
+            font-size: 24px;
+            font-weight: bold;
         }
-
-        /* 로그인 아이콘과 텍스트 위치 */
-        .login-container {
-            right: 20px; /* 화면 우측에 위치 */
+    
+        .calendar-day {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            background-color: #0056b3;
+            color: white;
         }
-
-        /* 검색 아이콘과 텍스트 위치 */
-        .search-container {
-            right: 140px; /* 화면 우측에 위치 */
+    
+        .calendar-date {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
         }
-
-        /* 로그인 텍스트와 검색 텍스트 위치 */
-        .login-container span, .search-container span {
-            margin-right: 5px; /* 텍스트와 아이콘 사이의 간격 조정 */
+    
+        .calendar-date.event {
+            background-color: #f2f2f2;
+            border: 1px solid #0056b3;
+            cursor: pointer;
         }
-
-        /* 왼쪽 칸 내부 리스트 스타일 */
-        .left-column ul {
-            list-style-type: none; /* 리스트 스타일 제거 */
-            padding: 0; /* 내부 패딩 제거 */
+    
+        .calendar-date.event:hover {
+            background-color: #ddd;
         }
-
-        /* 왼쪽 칸 내부 리스트 아이템 스타일 */
-        .left-column li {
-            margin-bottom: 10px; /* 각 아이템간의 간격 조정 */
-            cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능하다는 표시 */
-            color: #333; /* 텍스트 색상 */
-            font-size: 24px; /* 텍스트 크기 */
+    
+        .event-details {
+            margin-top: 20px;
         }
     </style>
+    
 </head>
 <body>
-    <h1 id="logoText" onclick="goToTop()">안양대학교</h1>
-    <div class="search-container bottom-elements">
-        <i class="fas fa-search search-icon"></i>
-    </div>
-    <div class="login-container bottom-elements">
-        <i class="fas fa-user-circle login-icon"></i>
-        <span>로그인</span>
+    <div class="top-bar">
+        <!-- 함수 이름 변경 및 클릭 이벤트 핸들러 수정 -->
+        <h1 id="logoText" onclick="goToMainPage()">안양대학교</h1>
+        <div class="login-container bottom-elements">
+            <i class="fas fa-user-circle login-icon" onclick="goToProfile()"></i>
+            <span onclick="goToLogin()">로그인</span>
+        </div>
     </div>
     <hr>
     <div class="vertical-line"></div> <!-- 수직선 -->
     <div class="left-column">
         <ul>
-            <li onclick="goToSearch()"><i class="fas fa-search"></i>검색바</li>
             <li onclick="goToNotice()">학교공지사항</li>
             <li onclick="goToFreeBoard()">자유게시판</li>
             <li onclick="goToOnlineLecture()">사이버강의</li>
         </ul>
     </div> <!-- 왼쪽 칸 -->
-    <div class="right-column"></div> <!-- 오른쪽 칸 -->
+    <div class="right-column">
+        <div class="board-container">
+            <div class="board-header">학사 일정표</div>
+            <div class="calendar-header">
+                <button onclick="prevMonth()">이전 달</button>
+                <div id="calendarMonthYear"></div>
+                <button onclick="nextMonth()">다음 달</button>
+            </div>
+            <div class="calendar" id="calendar">
+                <div class="calendar-day">일</div>
+                <div class="calendar-day">월</div>
+                <div class="calendar-day">화</div>
+                <div class="calendar-day">수</div>
+                <div class="calendar-day">목</div>
+                <div class="calendar-day">금</div>
+                <div class="calendar-day">토</div>
+                <!-- 여기에 날짜가 동적으로 추가됩니다 -->
+            </div>
+            <div id="eventDetails" class="event-details"></div>
+        </div>
+    </div> <!-- 오른쪽 칸 -->
 
     <script>
-        // 클릭 시 화면 상단으로 이동하는 함수
-        function goToTop() {
-            window.scrollTo(0, 0); // 화면을 상단으로 스크롤
+        const events = [
+            { date: '2024-03-01', title: '개강' },
+            { date: '2024-04-05', title: '중간고사 시작' },
+            { date: '2024-04-12', title: '중간고사 종료' },
+            { date: '2024-06-17', title: '기말고사 시작' },
+            { date: '2024-06-21', title: '기말고사 종료' },
+            { date: '2024-06-21', title: '종강' }
+        ];
+
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+
+        function loadCalendar(month, year) {
+            const calendar = document.getElementById('calendar');
+            const monthYear = document.getElementById('calendarMonthYear');
+            const eventDetails = document.getElementById('eventDetails');
+            calendar.innerHTML = `
+                <div class="calendar-day">일</div>
+                <div class="calendar-day">월</div>
+                <div class="calendar-day">화</div>
+                <div class="calendar-day">수</div>
+                <div class="calendar-day">목</div>
+                <div class="calendar-day">금</div>
+                <div class="calendar-day">토</div>
+            `;
+
+            const firstDay = new Date(year, month).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            monthYear.textContent = `${year}년 ${month + 1}월`;
+
+            for (let i = 0; i < firstDay; i++) {
+                calendar.innerHTML += `<div class="calendar-date"></div>`;
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const event = events.find(e => e.date === dateString);
+                if (event) {
+                    calendar.innerHTML += `<div class="calendar-date event" onclick="showEvent('${event.title}', '${dateString}')">${day}</div>`;
+                } else {
+                    calendar.innerHTML += `<div class="calendar-date">${day}</div>`;
+                }
+            }
         }
 
-        // 검색바로 이동하는 함수
-        function goToSearch() {
-            // 검색 페이지로 이동
-            window.location.href = "search.html";
+        function showEvent(title, date) {
+            const eventDetails = document.getElementById('eventDetails');
+            eventDetails.innerHTML = `<h3>${date}</h3><p>${title}</p>`;
         }
 
-        // 학교공지사항으로 이동하는 함수
+        function prevMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            loadCalendar(currentMonth, currentYear);
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            loadCalendar(currentMonth, currentYear);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCalendar(currentMonth, currentYear);
+        });
+
         function goToNotice() {
-            // 학교공지사항 페이지로 이동
-            window.location.href = "Notification.HTML";
+            window.location.href = "Notification.html";
         }
 
-        // 자유게시판으로 이동하는 함수
         function goToFreeBoard() {
-            // 자유게시판 페이지로 이동
-            window.location.href = "FreeBoard.html";
+            window.location.href = "freeboard.html";
         }
 
-        // 사이버강의로 이동하는 함수
         function goToOnlineLecture() {
-            // 사이버강의 페이지로 이동
             window.location.href = "https://cyber.anyang.ac.kr/index.jsp";
         }
 
-        // 로그인으로 이동하는 함수
         function goToLogin() {
-        // 로그인 페이지로 이동
-        window.location.href = "Login.HTML";
+            window.location.href = "Login.HTML";
         }
 
-        // 마우스 휠 이벤트를 처리하여 스크롤을 막음
-        window.addEventListener("wheel", function(e) {
-            e.preventDefault();
-        });
-
-        //안양대학교 텍스트 클릭시 매인페이지로 돌아오는 함수
-        function logoText() {
-            // 매인페이지로 이동
-            window.location.href = "Project.html";
+        function goToProfile() {
+            window.location.href = "profile.html";
         }
 
-        // 안양대학교 텍스트 클릭 시 현재 페이지로 돌아오는 함수
-        document.getElementById("logoText").addEventListener("click", function() {
-            window.scrollTo(0, 0); // 페이지 맨 위로 스크롤
-        });
-
-         // 로그인 텍스트 클릭 시 로그인 페이지로 이동하는 함수 추가
-    document.querySelector(".login-container").addEventListener("click", function() {
-        goToLogin(); // 로그인 페이지로 이동하는 함수 호출
-    });
+        function goToMainPage() {
+            window.location.href = "Main.html";
+        }
     </script>
 </body>
 </html>
